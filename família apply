@@ -1,0 +1,28 @@
+# funções de repetição - família apply
+
+apply(iris[ ,-5], 2, mean) 
+lapply(iris[, -5], mean)
+sapply(iris[, -5], mean)
+
+par(mfrow = c(2, 2))
+
+sapply(iris[ , 1:4], hist)
+mapply(hist, iris[ , 1:4], MoreArgs=list(main='Histograma', xlab = 'Valores', ylab = 'Frequência')) 
+
+for (i in 1:4) {
+  x <- iris[ , i]
+  hist(x,
+       main = names(iris)[i],
+       xlab = "Valores da Variável",
+       ylab = 'Frequência',
+       xlim = c(min(iris[, i]), max(iris[, i])))
+
+  ## função
+  
+  for (i in 1:5) {
+    x <- lista_livros[ , i]
+    hist(x,
+         main = names(lista_livros)[i],
+         xlab = "Valores da Variável",
+         ylab = 'Frequência',
+         xlim = c(min(lista_livros[, i]), max(lista_livros[, i])))
