@@ -1,28 +1,13 @@
-# funções de repetição - família apply
+#função vetorizada
 
-apply(iris[ ,-5], 2, mean) 
-lapply(iris[, -5], mean)
-sapply(iris[, -5], mean)
+aa<-c(1,3,5,7,9)
+bb<-c(5,6,3,8,9)
+cc<-c("a","a","b","a","b")
 
-par(mfrow = c(2, 2))
+matrizTeste <- data.frame(aa,bb,cc)
 
-sapply(iris[ , 1:4], hist)
-mapply(hist, iris[ , 1:4], MoreArgs=list(main='Histograma', xlab = 'Valores', ylab = 'Frequência')) 
+matrizTeste
 
-for (i in 1:4) {
-  x <- iris[ , i]
-  hist(x,
-       main = names(iris)[i],
-       xlab = "Valores da Variável",
-       ylab = 'Frequência',
-       xlim = c(min(iris[, i]), max(iris[, i])))
-
-  ## função
-  
-  for (i in 1:5) {
-    x <- lista_livros[ , i]
-    hist(x,
-         main = names(lista_livros)[i],
-         xlab = "Valores da Variável",
-         ylab = 'Frequência',
-         xlim = c(min(lista_livros[, i]), max(lista_livros[, i])))
+apply(matrizTeste[ ,-3], 2, mean) #retira a terceira coluna, que não é numérica, e o 2 indica a média das colunas
+lapply(matrizTeste[, -3], mean)
+sapply(matrizTeste[, -3], mean)
